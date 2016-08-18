@@ -1,33 +1,36 @@
 <DOCTYPE html>
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Simple Simon</title>
-		<!-- Bootstrap Core CSS -->
-		<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-		<!-- Custom CSS -->
-		<link rel="stylesheet" type="text/css" href="/css/simple-simon.css">
-	<head>
-	<body>
-		<div class="jumbotron">
-			<h1>Simple Simon</h1>
-		</div>
-		<div class="container">
-			<div class="box" id="red"></div>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Simon</title>
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/css/simple-simon.css">
+    <head>
+    <body>
+        <div class="jumbotron">
+            <h1>Simple Simon</h1>
+        </div>
+        <div id="round"></div>
+        <div class="container">
+            <div class="box" id="red" value="0"></div>
 
-			<div class="box" id="blue"></div>
+            <div class="box" id="blue" value="1"></div>
 
-			<div class="box" id="green"></div>
+            <div class="box" id="green" value="2"></div>
 
-			<div class="box" id="yellow"></div>
-		</div>
-		
+            <div class="box" id="yellow" value="3"></div>
+        </div>
+        
 
 
-		<!-- JQuery -->
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
-		<!-- Custom JavaScript -->
-		<script type="text/javascript" src="/js/simple-simon.js"></script>
-	</body>
+        <!-- JQuery -->
+        <script type="text/javascript" src="/js/jquery.min.js"></script>
+        <!-- JQuery Shadow Animation plugin -->
+        <script src="//cdn.jsdelivr.net/jquery.shadow-animation/1/mainfile"></script>
+        <!-- Custom JavaScript -->
+        <script type="text/javascript" src="/js/simple-simon.js"></script>
+    </body>
 </html>

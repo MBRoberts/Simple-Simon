@@ -1,36 +1,41 @@
 .container {
-	border: 1px solid black;
-	width: 500px;
-	height: 500px;
-	padding: 30px;
-	background-color: grey;
-	border-radius: 80px;
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    padding: 30px;
+    background-color: grey;
+    border-radius: 80px;
 }
 
 
 .box {
-	width: 175px;
-	height: 175px;
-	border: 1px solid black;
-	margin: 20px;
-	float: left;
-	opacity: .25;
-	border-radius: 40px;
-	box-shadow: 10px 10px 10px #111;
+    width: 175px;
+    height: 175px;
+    border: 1px solid black;
+    margin: 20px;
+    float: left;
+    opacity: .25;
+    border-radius: 20%;
+    box-shadow: 10px 10px 10px #111;
+}
+
+#round{
+    font-size: 2em;
+    text-align: center;
 }
 
 #red {
-	background-color: red;
+    background-color: red;
 }
 
 #blue {
-	background-color: blue;
+    background-color: blue;
 }
 
 #green {
-	background-color: green;
+    background-color: green;
 }
 
 #yellow {
-	background-color: yellow;
+    background-color: yellow;
 }
