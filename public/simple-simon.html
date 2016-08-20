@@ -4,16 +4,26 @@
     <head>
         <meta charset="utf-8">
         <title>Simple Simon</title>
+
         <!-- Bootstrap Core CSS -->
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" type="text/css" href="/css/simple-simon.css">
     <head>
     <body>
-        <div class="jumbotron">
-            <h1>Simple Simon</h1>
+
+        <div id="round"><h1>Round: </h1></div>
+
+        <div class="center-wrap" id="disappear">
+            <div class="title-container">
+                <div class="ribbon-left"></div>
+                <div class="backflag-left"></div>
+                <div class="title "><a id="start">-    Simple Simon: Click Here to Start    -</a></div>
+                <div class="backflag-right"></div>
+                <div class="ribbon-right"></div>
+            </div>
         </div>
-        <div id="round"></div>
+
         <div class="container">
             <div class="box" id="red" value="0"></div>
 
@@ -24,7 +34,7 @@
             <div class="box" id="yellow" value="3"></div>
         </div>
         
-
+        <iframe id="video" width="640" height="480"  frameborder="0"></iframe>
 
         <!-- JQuery -->
         <script type="text/javascript" src="/js/jquery.min.js"></script>
