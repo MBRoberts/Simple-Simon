@@ -2,6 +2,8 @@
     width: 500px;
     height: 500px;
     padding: 30px;
+    border-radius: 100%;
+    background-color: rgba(0,0,0,.5);
 }
 
 .center-wrap {
@@ -12,6 +14,7 @@
     left: 70px;
     bottom: 325px;
     position: fixed;
+    z-index: 1;
 }
 
 .title-container {
@@ -24,6 +27,7 @@
     line-height: 60px;
     margin-top: 100px;
     border: 1px solid #fff;
+    cursor: pointer;
 }
 
 .title {
@@ -67,7 +71,7 @@
     border: 1px solid black;
     margin: 20px;
     float: left;
-    opacity: .35;
+    opacity: .5;
     border-radius: 10%;
     box-shadow: 10px 10px 10px #111;
 }

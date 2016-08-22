@@ -3,18 +3,25 @@
 $(document).ready(function() {
 
     var music = document.getElementById("music"),
-        video = document.getElementById('background'),
+        backgroundVideo = document.getElementById('background'),
         sequenceArray = [],
         sequenceArrayCopy = [],
-        round = 1,
         sequenceSpeed = 500;
 
     //  Sets rate and volume of background video and music
     music.playbackRate = .5;
-    music.volume = .25;
-    video.playbackRate = .5;
+    backgroundVideo.playbackRate = .5;
+    music.volume = .4;
 
-        
+    //  Increases Speed and volume of animations, music, and background image
+    function speed() {
+        music.playbackRate += .1;
+        backgroundVideo.playbackRate += .2;
+        music.volume += .05
+        if(sequenceSpeed > 200) {
+            sequenceSpeed -= 25;
+        }
+    }
 
     //  The light function simply lights the color passed in by the roundLoop function
     function lightUp(btn, delay) {   
@@ -26,10 +33,10 @@ $(document).ready(function() {
             opacity : .35,
             boxShadow : '10 10 10px #111'
         }, delay);
-
     }
 
-    //  The uiClicks function saves the button the user clicks on
+    // --------------------------Step 3-------------------------------
+    // Sets a listener to each div;  animates the button the user clicks on; compares each click to the passed in copied array; if clicks are correct it starts back at Step 1 if clicks are incorrect displays "lose video" 
     function uiClicks(sequenceCheckArray) {
 
         $('.box').on("click", function(e){
@@ -45,7 +52,6 @@ $(document).ready(function() {
 
                 if (sequenceCheckArray.length == 0){  //  once the array is empty it shuts off the eventlistener and returns to the nextRandNum functoin 
 
-                    round++;
                     $(".box").off('click');
                     nextRandNum();
 
@@ -53,23 +59,23 @@ $(document).ready(function() {
 
                     $(".box").off('click');
                     uiClicks(sequenceCheckArray);
-
                 }
-            } else {  //  if the wrong key is entered the music is stopped and willie video plays then the page reloads
+            } else {  //  if the wrong button is entered the music is stopped and the willie video plays then the page reloads
 
                 $(".box").off('click');
                 setTimeout(function(){
                     location.reload();
-                }, 6000)
-                music.pause();
+                }, 6500);
                 $('#video').attr('src', 'https://www.youtube.com/embed/VDW0ZnZxjn4?rel=0&amp;autoplay=1&amp;controls=0&amp;showinfo=0');
                 $('#video').css('display', 'block');
-
+                music.pause();
+                
             }
         });
     }
 
-    // The roundLoop function will continue lighting up random colors then calling itself until the count has reached the round
+    // ---------------------------Step 2-----------------------------
+    // Will light up colors according to the random numbers stored in the array; Once finished will send the copied array to the above function
     function roundLoop(sequence, count) {
         
         setTimeout(function() {
@@ -88,43 +94,40 @@ $(document).ready(function() {
                     lightUp('#yellow', sequenceSpeed);
                     break;
             }
+
             count++;
 
-            if (count < round) {  //  Will continue running the function until the count reaches the round number
+            if (count < sequenceArray.length) {  //  Will continue running the function until the count reaches the round number
                 roundLoop(sequence, count);
             } else {
                 uiClicks(sequence);  //  Once the sequence is complete it calls the UI function
             }
-        }, (sequenceSpeed * 2))  //  Delays the loop by 1 sec
+        }, (sequenceSpeed * 2));  //  Delays the loop by 1 sec
     }
 
-
+    // ------------------------Step 1----------------------------
+    //  Adds a random number to the sequenceArray; Resets counts to 0; displays round; sends a copy of the sequence to above function
     function nextRandNum() {
-
-        if(round % 3 == 0) {  //  Increases the speed of the video, music, and animations
-            music.playbackRate += .5;
-            video.playbackRate += .75;
-            if(sequenceSpeed > 200) {
-                sequenceSpeed -= 100;
-            }
-        }
 
         var count = 0;
         var randNum = Math.floor((Math.random() * 4));
         sequenceArray.push(randNum);  //  Pulls a random number between 0-3 and pushes it onto the button array
         var sequenceArrayCopy = sequenceArray.slice(0);  //  copys the sequenceArray so the array can be modified throughout the program without modifying the original sequence
-        console.log(sequenceArray);
-        $('#round').html("Round: " + round);  //  Displays the round number
-        roundLoop(sequenceArrayCopy, count);    //  Starts light sequence
 
+        speed();  //  Increases the speed of the video, music, and animations
+        console.log(sequenceArray);  // This is how I cheat!!
+        $('#round').html("Round: " + sequenceArray.length);  //  Displays the round number
+        roundLoop(sequenceArrayCopy, count);    //  Starts light sequence
     }
-    
+
+    // -----------------Start---------------------
+    //  Fades out ribbon and calls above function
     $('#start').click(function(e){
         $('#disappear').fadeOut("slow", function(){
             nextRandNum();  //  Starts game
         });
     });
-});
+}); // end doc.ready
 
 
 
