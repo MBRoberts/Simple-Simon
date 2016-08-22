@@ -11,9 +11,18 @@
         <link rel="stylesheet" type="text/css" href="/css/simple-simon.css">
     <head>
     <body>
+        <!-- Background music -->
+        <audio id="music" loop autoplay>
+            <source src="/sounds/music.mp3" type="audio/mp3">
+        </audio>
+        <!-- Background video -->
+        <video autoplay loop muted id="background">
+            <source src="/grey-background.mp4" type="video/mp4">
+        </video>
 
-        <div id="round"><h1>Round: </h1></div>
+        <div id="round">Simple Simon</div>
 
+        <!-- Start Ribbon -->
         <div class="center-wrap" id="disappear">
             <div class="title-container">
                 <div class="ribbon-left"></div>
@@ -24,17 +33,16 @@
             </div>
         </div>
 
+        <!-- Buttons -->
         <div class="container">
             <div class="box" id="red" value="0"></div>
-
             <div class="box" id="blue" value="1"></div>
-
             <div class="box" id="green" value="2"></div>
-
             <div class="box" id="yellow" value="3"></div>
         </div>
         
-        <iframe id="video" width="640" height="480"  frameborder="0"></iframe>
+        <!-- Embedded video -->
+        <iframe id="video" width="640" height="480" frameborder="0"></iframe>
 
         <!-- JQuery -->
         <script type="text/javascript" src="/js/jquery.min.js"></script>
