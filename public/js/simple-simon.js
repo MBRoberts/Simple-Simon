@@ -17,7 +17,9 @@ $(document).ready(function() {
     function speed() {
         music.playbackRate += .1;
         backgroundVideo.playbackRate += .2;
-        music.volume += .05
+        if (music.volume < 1){  //  Volume can't increase past 1
+            music.volume += .05;
+        }
         if(sequenceSpeed > 200) {
             sequenceSpeed -= 25;
         }
